@@ -1,0 +1,32 @@
+
+[Unit]
+# Назва та короткий опис служби моніторингу
+Description=Linux System Resource Monitor
+
+[Service]
+# Тип служби: systemd безпосередньо запускає та відстежує процес Python
+Type=simple
+
+# Робочий каталог, у якому виконується скрипт
+WorkingDirectory=/opt/sys-monitor
+
+# Команда запуску Python-скрипта з параметрами моніторингу
+# -u забезпечує небуферизоване виведення повідомлень
+# --interval 5 задає інтервал вимірювань 5 секунд
+# --output визначає шлях до CSV-файлу телеметрії
+ExecStart=/usr/bin/python3 -u /opt/sys-monitor/sys_monitor.py --interval 5 --output /var/lib/sys-monitor/telemetry.csv
+
+# Автоматичне створення каталогу для збереження даних
+StateDirectory=sys-monitor
+
+# Автоматичний повторний запуск служби у разі збою
+Restart=on-failure
+
+# Затримка перед повторним запуском після збою, 5 секунд
+RestartSec=5
+
+
+[Install]
+# Підключення служби до режиму багатокористувацької роботи Linux
+# Дозволяє автоматично запускати службу під час завантаження системи
+WantedBy=multi-user.target
