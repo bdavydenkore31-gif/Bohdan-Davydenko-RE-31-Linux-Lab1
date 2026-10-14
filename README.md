@@ -172,3 +172,12 @@ Temp: 61.0 °C
 `python3 sys_monitor.py --temp-path /tmp/test_temp --count 3 --interval 1 --output test.csv
 
 Оскільки температура нижча за встановлений поріг **60 °C**, попередження не з'явиться.
+
+## Результати роботи
+<img width="977" height="508" alt="image" src="https://github.com/user-attachments/assets/4f022e98-8191-4b6e-a51a-0688782903bd" />
+Перевірка перевищення температури
+<img width="1371" height="236" alt="image" src="https://github.com/user-attachments/assets/2a17c98f-b412-4bcc-a74c-b339b72c1a6a" />
+Перевірка безперевної роботи у фоновому режимі
+<img width="1460" height="549" alt="image" src="https://github.com/user-attachments/assets/32a8c6d5-d6df-4285-b50c-32be04f909db" />
+
+
